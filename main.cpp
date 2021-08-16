@@ -52,12 +52,26 @@ T* Quick_sort(T* mass,T l,T r){
             };
 
 
+// СОРТИРОВКА ПУЗЫРЬКОМ
+template<typename T>
+T* Bubble_sort(T* mass, int n){
+    for(int i=0;i<n-1;++i){
+        for(int j=0;j<n-1-i;++j){
+            if(mass[j]>mass[j+1])
+                std::swap(mass[j],mass[j+1]);
+
+        }
+    }
+    return mass;
+}
+
+//СОРТИРОВКА ВСТАВКАМИ
 
 
 
 int main(){
     int a[7]={1,6,5,7,9,3,8};
-    int* b= Quick_sort<int>(a,0,6);
+    int* b= Bubble_sort<int>(a,7);
     for(int i=0;i<7;++i)
         std::cout<<b[i]<<" ";
 }
