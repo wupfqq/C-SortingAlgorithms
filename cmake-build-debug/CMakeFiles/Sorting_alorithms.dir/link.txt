@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Sorting_alorithms.dir/main.cpp.o -o Sorting_alorithms 
