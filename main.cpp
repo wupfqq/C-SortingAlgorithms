@@ -68,7 +68,6 @@ T* Bubble_sort(T* mass, int n){
 //СОРТИРОВКА ВСТАВКАМИ
 template <typename T>
 T* Insertion_sort(T* mass, int n){
-
     for(int i=1;i<n;++i){
         T temp=mass[i];
         int j=i-1;
@@ -81,10 +80,26 @@ T* Insertion_sort(T* mass, int n){
     return mass;
 }
 
+//СОРТИРОВКА ВЫБОРОМ
+template<typename T>
+T* Selection_sort(T* mass,int n){
+    for(int i=0;i<n-1;++i){
+        T* min=(mass+i);
+        for(int j=i+1;j<n;++j){
+            if(mass[j]<mass[i])
+                min=mass+j;
+        }
+        std::swap(mass[i],*min);
+    }
+    return mass;
+}
+
+
+
 
 int main(){
-    int a[4]={1,7,9,3};
-    int* b= Insertion_sort<int>(a,4);
-    for(int i=0;i<4;++i)
+    int a[8]={1,7,9,3,6,9,2,4};
+    int* b= Insertion_sort<int>(a,8);
+    for(int i=0;i<8;++i)
         std::cout<<b[i]<<" ";
 }
