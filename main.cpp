@@ -95,11 +95,32 @@ T* Selection_sort(T* mass,int n){
 }
 
 
+//ШЕЙКЕРНАЯ СОРТИРОВКА
+template<typename T>
+T* Shaker_sort(T* mass,int n){
+    int l=0;
+    int r=n-1;
+    while (l<r){
+        for(int i=l;i<r;++i){
+            if(mass[i]>mass[i+1])
+                std::swap(mass[i],mass[i+1]);
+        }
+        r--;
+        for(int j=r;j>l;j--){
+            if(mass[j-1]>mass[j])
+                std::swap(mass[j-1],mass[j]);
+        }
+        l++;
+    }
+    return mass;
+}
+
+
 
 
 int main(){
-    int a[8]={1,7,9,3,6,9,2,4};
-    int* b= Insertion_sort<int>(a,8);
+    int a[8]={1,7,9,3,7,3,5,1};
+    int* b= Shaker_sort<int>(a,8);
     for(int i=0;i<8;++i)
         std::cout<<b[i]<<" ";
 }
